@@ -23,7 +23,7 @@
 
 **克隆项目**
 ```bash
-
+git clone https://github.com/tequila28/Foundations-of-RL-Learning.git
 ```
 **创建虚拟环境（推荐）**
 
@@ -32,7 +32,9 @@ conda create -n rl_learning python=3.9 -y
 conda activate rl_learning
 ```
 **安装依赖**
-
+```bash
+pip install numpy matplotlib
+```
 ## 🏗️ 项目结构
 
 ## 📊 算法实现概览
