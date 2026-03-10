@@ -13,8 +13,8 @@ Chapter1_Basic_Concepts/
 │ ├── environment_model.py # 网格世界环境模型
 │ ├── experiment.py # 实验主文件
 │ └── visualization.py # 可视化工具
-└── scripts/ # 运行脚本
-  ├── Chapter1_Basic_Concepts/scripts/chapter1_experiment.sh # 一键运行脚本
+└── scripts/ # 运行脚本目录
+└── chapter1_experiment.sh # 一键运行实验脚本
 ```
 
 ##  快速开始
