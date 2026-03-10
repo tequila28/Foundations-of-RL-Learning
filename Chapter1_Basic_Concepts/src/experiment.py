@@ -138,7 +138,7 @@ def main():
     print_policy_info(env, policy)
     
     # Create result directory
-    result_dir = os.path.join(parent_dir, "result")
+    result_dir = os.path.join(parent_dir, "results")
     os.makedirs(result_dir, exist_ok=True)
     
     # Visualize the environment with policy and save to file
@@ -165,4 +165,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
