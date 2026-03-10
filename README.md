@@ -51,7 +51,7 @@ pip install numpy matplotlib
 | 值函数近似算法 | ❌ 未实现 | 待补充 | 使用参数化函数（如线性函数、神经网络）来近似表示大规模或连续状态空间下的价值函数。 |
 | 策略梯度算法 | ❌ 未实现 | 待补充 | 直接对参数化策略进行优化的一类算法，通过梯度上升来最大化期望回报，主要包括REINFORCE和Actor-Critic（AC）等。 |
 
-## 🤝 致谢
+
 
 ## 📖 相关资源
 
@@ -67,4 +67,5 @@ pip install numpy matplotlib
 
 该书由西湖大学赵世钰老师撰写，是系统学习强化学习基础理论的权威指南。其核心特色是数学严谨、循序渐进，全书以网格世界为统一实例，从MDP、贝尔曼方程等基础概念出发，逐步推导至策略梯度、Actor-Critic等核心算法。随书还附有完整的教材PDF、讲义及配套代码，非常适合理论与实践相结合的学习。
 
-同时感谢 **[对齐智能 (Align Intelligence)](https://github.com/YourTeamURL)** 团队成员在算法讨论与实验评估中提供的宝贵建议。
+## 🤝 致谢
+感谢 **[对齐智能 (Alignment Intelligence)](https://github.com/YourTeamURL)** 团队成员在算法讨论与实验评估中提供的宝贵建议。
