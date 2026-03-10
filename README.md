@@ -53,8 +53,18 @@ pip install numpy matplotlib
 
 ## 🤝 致谢
 
-本项目在开发过程中参考了以下开源项目、算法实现及技术框架，特此致谢：
+## 📖 相关资源
 
-* **[PyTorch](https://pytorch.org/)**
+本项目的学习与实现参考了丰富的开源资料，主要包括一本备受好评的教材和一个完整的配套视频课程。
+
+### 核心教材
+
+**[《强化学习的数学原理》 (Mathematical Foundations of Reinforcement Learning)》](https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning)**
+
+### 配套视频课程
+
+**[【强化学习的数学原理】课程：从零开始到透彻理解（完结）](https://www.bilibili.com/video/BV1sd4y167NS)**
+
+该书由西湖大学赵世钰老师撰写，是系统学习强化学习基础理论的权威指南。其核心特色是数学严谨、循序渐进，全书以网格世界为统一实例，从MDP、贝尔曼方程等基础概念出发，逐步推导至策略梯度、Actor-Critic等核心算法。随书还附有完整的教材PDF、讲义及配套代码，非常适合理论与实践相结合的学习。
 
 同时感谢 **[对齐智能 (Align Intelligence)](https://github.com/YourTeamURL)** 团队成员在算法讨论与实验评估中提供的宝贵建议。
