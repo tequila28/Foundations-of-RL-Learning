@@ -3,9 +3,9 @@
 > 🎯 从零开始构建强化学习基础算法学习库 | 🧠 理解经典RL算法的核心原理与实践
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) 
-[![Status](https://img.shields.io/badge/status-updating-yellow.svg)]() 
-[![Algorithm](https://img.shields.io/badge/algorithm-Reinforcement%20Learning%20Basics-blue.svg)]()
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) 
+[![Status](https://img.shields.io/badge/Status-updating-yellow.svg)]() 
+[![Algorithm](https://img.shields.io/badge/Algorithm-Reinforcement%20Learning%20Basics-blue.svg)]()
 
 ## 项目简介
 
