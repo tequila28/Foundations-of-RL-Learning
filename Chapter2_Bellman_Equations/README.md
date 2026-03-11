@@ -27,10 +27,10 @@ bash Chapter2_Bellman_Equations/scripts/chapter2_experiment.sh
 ## 实验结果
 实验将生成两个可视化图表，展示每种贝尔曼方程的形式下求解的策略对应的状态值：
 
-### 随机策略可视化
+### 闭式解结果可视化
 ![随机策略图](./results/grid_world_policy_comparison_closed.png)
 
 
-### 随机策略下的状态值
+### 迭代式结果可视化
 ![策略价值图](./results/grid_world_policy_comparison_iterative.png)
 
