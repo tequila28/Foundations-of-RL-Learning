@@ -27,8 +27,8 @@ bash Chapter1_Basic_Concepts/scripts/chapter1_experiment.sh
 实验将生成两个可视化图表，展示随机策略及其对应的状态值：
 
 ### 随机策略可视化
-![随机策略图](./result/grid_world_policy.png)
+![随机策略图](./results/grid_world_policy.png)
 
 
-### 随机策略下的状态值函数
-![策略价值图](./result/grid_world_policy_value.png)
+### 随机策略下的状态值
+![策略价值图](./results/grid_world_policy_value.png)
