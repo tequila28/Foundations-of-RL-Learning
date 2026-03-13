@@ -36,7 +36,7 @@ bash Chapter3_Policy_and_Value_Iteration/scripts/chapter3_experiment.sh
 
 
 ### 截断策略迭代算法不同内部循环次数下收敛的迭代次数可视化
-![不同内部循环次数的截断策略迭代算法](./TPI_error_vs_x.png)
+![不同内部循环次数的截断策略迭代算法](./results/TPI_error_vs_x.png)
 
 ### 三种算法对应的最佳策略及其状态值可视化
 ![三种算法对应的最佳策略](./results/policy_comparison.png)
