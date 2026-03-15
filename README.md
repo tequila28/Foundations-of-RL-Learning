@@ -68,4 +68,4 @@ pip install numpy matplotlib
 该书由西湖大学赵世钰老师撰写，是系统学习强化学习基础理论的权威指南。其核心特色是数学严谨、循序渐进，全书以网格世界为统一实例，从MDP、贝尔曼方程等基础概念出发，逐步推导至策略梯度、Actor-Critic等核心算法。随书还附有完整的教材PDF、讲义及配套代码，非常适合理论与实践相结合的学习。
 
 ## 🤝 致谢
-感谢 **[对齐智能 (Alignment Intelligence)](https://github.com/YourTeamURL)** 团队成员在算法讨论与实验评估中提供的宝贵建议。
+
