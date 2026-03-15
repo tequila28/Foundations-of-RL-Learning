@@ -41,11 +41,11 @@ pip install numpy matplotlib
 
 | 算法名称             | 实现状态 | 位置                     | 说明                                                                 |
 |----------------------|----------|--------------------------|----------------------------------------------------------------------|
-| 网格环境             | ✅ 已实现 | `Chapter1_Basic_Concepts/grid_world.py` | 用于算法测试的网格世界仿真环境，支持状态、动作、奖励与终止条件。         |
-| 贝尔曼方程           | ✅ 已实现 | `Chapter2_Bellman_Equations/bellman.py` | 强化学习核心方程，用于递归计算状态价值或动作价值函数。                 |
-| 策略迭代 (Policy Iteration) | ✅ 已实现 | `Chapter3_Policy_and_Value_Iteration/policy_iteration.py` | 经典动态规划算法，通过策略评估+策略改进交替迭代，收敛至最优策略。       |
-| 价值迭代 (Value Iteration) | ✅ 已实现 | `Chapter3_Policy_and_Value_Iteration/value_iteration.py` | 动态规划方法，直接迭代更新价值函数至收敛，再导出最优策略，效率更高。     |
-| 蒙特卡洛 (First-Visit MC) | ✅ 已实现 | `Chapter4_Monte_Carlo/first_visit_mc.py` | 基于完整回合采样（Episode）的免模型学习方法，用于估计状态/策略价值。     |
+| 网格环境             | ✅ 已实现 | `Chapter1_Basic_Concepts` | 用于算法测试的网格世界仿真环境，支持状态、动作、奖励与终止条件。         |
+| 贝尔曼方程           | ✅ 已实现 | `Chapter2_Bellman_Equations` | 强化学习核心方程，用于递归计算状态价值或动作价值函数。                 |
+| 策略迭代 (Policy Iteration) | ✅ 已实现 | `Chapter3_Policy_and_Value_Iteration` | 经典动态规划算法，通过策略评估+策略改进交替迭代，收敛至最优策略。       |
+| 价值迭代 (Value Iteration) | ✅ 已实现 | `Chapter3_Policy_and_Value_Iteration` | 动态规划方法，直接迭代更新价值函数至收敛，再导出最优策略，效率更高。     |
+| 蒙特卡洛 (First-Visit MC) | ✅ 已实现 | `Chapter4_Monte_Carlo` | 基于完整回合采样（Episode）的免模型学习方法，用于估计状态/策略价值。     |
 | 随机近似 | ❌ 未实现 | 待补充 | 包含随机梯度下降（SGD）、批量梯度下降（BGD）及小批量梯度下降（MBGD）等优化算法。 |
 | 时序差分算法 (TD) | ❌ 未实现 | 待补充 | 结合了蒙特卡洛采样和动态规划自举（Bootstrapping）思想的一类算法，包括TD、SARSA及其变体、Q-learning等。 |
 | 值函数近似算法 | ❌ 未实现 | 待补充 | 使用参数化函数（如线性函数、神经网络）来近似表示大规模或连续状态空间下的价值函数。 |
