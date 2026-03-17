@@ -31,7 +31,32 @@ Chapter5_Stochastic_Approximation/
 
 运行实验脚本：
    ```bash
-   Chapter5_Stochastic_Approximation/scripts/chapter5_experiment.sh
+   bash Chapter5_Stochastic_Approximation/scripts/chapter5_experiment.sh
    ```
    该脚本将运行所有实验并将结果保存到 `results/` 目录中。
 
+### 参数调整
+
+可以通过修改 `scripts/chapter5_experiment.sh` 文件中的参数来调整实验设置。例如：
+- **学习率（learning rate）**：调整梯度下降算法的学习率。
+- **批量大小（batch size）**：在小批量梯度下降（MBGD）中设置每次更新的样本数量。
+- **迭代次数（iterations）**：设置每种算法的最大迭代次数。
+
+
+## 实验结果
+
+实验将生成3个可视化结果，分别展示三种梯度下降算法的优化路径和误差收敛特性。
+
+### 可视化内容
+
+1. **轨迹图（Trajectories）**：展示不同梯度下降算法在参数空间中的优化路径。
+2. **误差收敛图（Error Convergence）**：展示误差随迭代次数的变化趋势。
+
+### BGD 轨迹与误差收敛
+![BGD 轨迹与误差收敛](./results/BGD_results.png)
+
+### SGD 轨迹与误差收敛
+![SGD 轨迹与误差收敛](./results/SGD_results.png)
+
+### MBGD 轨迹与误差收敛
+![MBGD 轨迹与误差收敛](./results/MBGD_results.png)
