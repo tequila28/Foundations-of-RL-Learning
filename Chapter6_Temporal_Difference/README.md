@@ -8,7 +8,7 @@
 ```bash
 Chapter6_Temporal_Difference/
 ├── results/
-│   ├── policy_comparison.png
+│   ├── final_policies_comparison.png
 │   └── multi_algorithm_comparison.png
 ├── scripts/
 │   └── chapter6_experiment.sh
@@ -63,7 +63,7 @@ bash Chapter6_Temporal_Difference/scripts/chapter6_experiment.sh
 实验将生成多种可视化结果，展示各TD算法的学习效果与训练过程。
 
 ### 多算法最佳策略及状态值对比
-![TD算法状态值对比](./results/policy_comparison.png)
+![TD算法状态值对比](./results/final_policies_comparison.png)
 
 ### 多算法训练曲线对比
 ![TD算法训练曲线对比](./results/multi_algorithm_comparison.png)
