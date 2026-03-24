@@ -46,10 +46,10 @@ pip install numpy matplotlib
 | 策略迭代 (Policy Iteration) | ✅ 已实现 | `Chapter3_Policy_and_Value_Iteration` | 经典动态规划算法，通过策略评估+策略改进交替迭代，收敛至最优策略。       |
 | 价值迭代 (Value Iteration) | ✅ 已实现 | `Chapter3_Policy_and_Value_Iteration` | 动态规划方法，直接迭代更新价值函数至收敛，再导出最优策略，效率更高。     |
 | 蒙特卡洛 (First-Visit MC) | ✅ 已实现 | `Chapter4_Monte_Carlo` | 基于完整回合采样（Episode）的免模型学习方法，用于估计状态/策略价值。     |
-| 随机近似 | ❌ 未实现 | 待补充 | 包含随机梯度下降（SGD）、批量梯度下降（BGD）及小批量梯度下降（MBGD）等优化算法。 |
-| 时序差分算法 (TD) | ❌ 未实现 | 待补充 | 结合了蒙特卡洛采样和动态规划自举（Bootstrapping）思想的一类算法，包括TD、SARSA及其变体、Q-learning等。 |
-| 值函数近似算法 | ❌ 未实现 | 待补充 | 使用参数化函数（如线性函数、神经网络）来近似表示大规模或连续状态空间下的价值函数。 |
-| 策略梯度算法 | ❌ 未实现 | 待补充 | 直接对参数化策略进行优化的一类算法，通过梯度上升来最大化期望回报，主要包括REINFORCE和Actor-Critic（AC）等。 |
+| 随机近似 | ✅ 已实现 | `Chapter5_Stochastic_Approximation` | 包含随机梯度下降（SGD）、批量梯度下降（BGD）及小批量梯度下降（MBGD）等优化算法。 |
+| 时序差分算法 (TD) | ✅ 已实现 | `Chapter6_Temporal_Difference` | 结合了蒙特卡洛采样和动态规划自举（Bootstrapping）思想的一类算法，包括TD、SARSA及其变体、Q-learning等。 |
+| 值函数近似算法 | ✅ 已实现 | `Chapter7_Function_Approximation` | 使用参数化函数（如线性函数、神经网络）来近似表示大规模或连续状态空间下的价值函数。 |
+| 策略梯度算法 | ❌ 未实现 | 待补充 | 直接对参数化策略进行优化的一类算法，通过梯度上升来最大化期望回报，主要包括REINFORCE、Actor-Critic（AC）及其变体。 |
 
 
 
