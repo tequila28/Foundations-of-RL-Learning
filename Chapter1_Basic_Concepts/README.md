@@ -1,8 +1,8 @@
-# Chapter 1: Grid World Environment
+# 章节1：网格环境
 
 <div align="right">
 
-[English](README_en.md) | [简体中文](README_zh.md)
+[English](README_en.md) | [简体中文](README.md)
 
 </div>
 
