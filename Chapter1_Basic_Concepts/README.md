@@ -1,9 +1,10 @@
-<div align="right">
-  <button onclick="showChinese()">中文</button>
-  <button onclick="showEnglish()">English</button>
-</div>
+# Chapter 1: Grid World Environment
 
-<div id="chinese-content" style="display: block;">
+<div align="right">
+
+[English](README_en.md) | [简体中文](README_zh.md) | [日本語](README_ja.md)
+
+</div>
   ## 介绍
 
   本章节实现了一个基础的网格世界（Grid World）强化学习环境。网格世界是强化学习中经典的基准测试环境，用于理解和测试各种强化学习算法。本项目实现了可配置的网格世界环境模型，并提供了策略可视化与状态值函数可视化的功能，为后续算法实验提供统一的基准环境。
@@ -56,7 +57,7 @@ bash Chapter1_Basic_Concepts/scripts/chapter1_experiment.sh
 ![策略价值图](./results/grid_world_policy_value.png)
 
 
-<div id="english-content" style="display: none;">
+
 ## Introduction
 
 This chapter implements a basic Grid World reinforcement learning environment. Grid World is a classic benchmark environment in reinforcement learning, used for understanding and testing various reinforcement learning algorithms. This project implements a configurable Grid World environment model and provides functionalities for policy visualization and state-value function visualization, offering a unified benchmark environment for subsequent algorithm experiments.
@@ -106,16 +107,4 @@ The experiment will generate two visualizations, showing a random policy and its
 
 ### State Values under Random Policy
 ![Policy Value](./results/grid_world_policy_value.png)
-</div>
 
-<script>
-function showChinese() {
-document.getElementById('chinese-content').style.display = 'block';
-document.getElementById('english-content').style.display = 'none';
-}
-
-function showEnglish() {
-document.getElementById('chinese-content').style.display = 'none';
-document.getElementById('english-content').style.display = 'block';
-}
-</script>
