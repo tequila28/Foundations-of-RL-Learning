@@ -55,6 +55,26 @@ Chapter3_Policy_and_Value_Iteration/ # Main directory for Chapter 3
 ```bash
 bash Chapter3_Policy_and_Value_Iteration/scripts/chapter3_experiment.sh
 ```
+## Parameter Description
+
+Below are the main parameters used in the experiment script and their meanings:
+
+| Parameter | Value | Description |
+|------|-----|------|
+| **GridWorld Configuration** | | |
+| **SIZE** | 5 | Grid world dimension, creating a 5×5 square grid |
+| **GAMMA** | 0.9 | Discount factor for future rewards, ranging 0-1. Higher values emphasize future rewards more |
+| **FORBIDDEN_STATES** | "6 7 12 16 18 21" | List of states that agents should avoid entering |
+| **TARGET_STATES** | "17" | List of target/terminal states, where episodes end upon reaching them |
+| **R_BOUND** | -1 | Immediate reward received when hitting grid boundaries |
+| **R_FORBID** | -1 | Immediate reward received for entering forbidden states |
+| **R_TARGET** | 1 | Immediate reward received for reaching target states |
+| **R_DEFAULT** | 0 | Default immediate reward for normal transitions |
+| **Algorithm Configuration** | | |
+| **THETA** | 1e-6 | Convergence threshold for stopping iterative algorithms |
+| **MAX_ITERATION** | 1000 | Maximum number of iterations allowed for algorithms to prevent infinite loops |
+| **TRUNCATED_INNER_ITERATION** | 5 | Default number of inner iterations for truncated policy iteration |
+| **TRUNCATED_INNER_ITERATION_LIST** | "1 5 10 20 50 100" | List of inner iteration counts for sensitivity analysis of truncated policy iteration |
 
 ## Experimental Results
 
