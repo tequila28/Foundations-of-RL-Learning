@@ -7,7 +7,7 @@
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Status: Updating](https://img.shields.io/badge/Status-Updating-yellow.svg)]()
 
-[English](README_en.md) | **简体中文**
+[English](README_en.md) | [简体中文](README.md)
 
 ---
 
@@ -17,8 +17,6 @@
 - [🚀 快速开始](#-快速开始)
 - [🏗️ 项目结构与算法概览](#-项目结构与算法概览)
 - [📖 核心学习资源](#-核心学习资源)
-- [🤝 如何贡献](#-如何贡献)
-- [🙏 致谢](#-致谢)
 - [📄 许可证](#-许可证)
 
 ## 🌟 项目简介
@@ -28,11 +26,12 @@
 项目从基础的网格世界环境、贝尔曼方程开始，逐步实现策略迭代、价值迭代、蒙特卡洛、时序差分、价值函数近似等经典算法，直至策略梯度算法。每个算法模块都包含：
 - 📖 **完整的代码实现** 与 **详尽的注释**
 - 💻 **可执行的测试示例**
+- 🛠️**支持调整关键参数（如学习率、折扣因子、探索率等）**
 - 📊 **学习过程与结果的可视化**
 
 ## ✨ 项目亮点
 - **代码驱动学习**：拒绝“黑箱”，每个算法都有手把手实现的代码，可逐行调试。
-- **统一的网格世界环境**：所有算法在同一个简单的环境中测试，便于对比和理解。
+- **统一的网格世界环境**：所有算法在同一个简单的网格环境中测试，便于对比和理解。
 - **结构清晰，循序渐进**：章节安排符合经典教材的学习路径，从基础到进阶。
 - **理论与实践结合**：代码实现紧密配合《强化学习的数学原理》等权威教材。
 
@@ -85,13 +84,12 @@ pip install numpy matplotlib
 本项目的学习与实现深受以下优质开源资源的启发，强烈推荐与代码结合学习：
 
 1.  **核心教材**：
-    *   **[《强化学习的数学原理》(Mathematical Foundations of Reinforcement Learning)](https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning)** - 由西湖大学赵世钰老师撰写。本书从数学角度系统讲解RL，逻辑严谨，以网格世界贯穿始终，是理解算法背后原理的绝佳指南。该GitHub仓库包含书籍PDF、讲义幻灯片等全部资源。
+    🔗 **[《强化学习的数学原理》(Mathematical Foundations of Reinforcement Learning)](https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning)** - 由西湖大学赵世钰老师撰写。本书从数学角度系统讲解RL，逻辑严谨，以网格世界贯穿始终，是理解算法背后原理的绝佳指南。该GitHub仓库包含书籍PDF、讲义幻灯片等全部资源。
 
 2.  **配套视频课程**：
-    *   **[【强化学习的数学原理】课程](https://www.bilibili.com/video/BV1sd4y167NS)** - 与教材配套的完整视频课程（Bilibili平台）。通过视频讲解，可以更直观地理解复杂概念。
+    🔗 **[【强化学习的数学原理】课程](https://www.bilibili.com/video/BV1sd4y167NS)** - 与教材配套的完整视频课程（Bilibili平台）。通过视频讲解，可以更直观地理解复杂概念。
 
 
 ## 📄 许可证
 
 本项目基于 MIT 许可证开源。详见 [LICENSE](LICENSE) 文件。
-
