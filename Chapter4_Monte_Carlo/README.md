@@ -45,17 +45,17 @@
 ```bash
 Chapter4_Monte_Carlo/
 ├── results/
-│   ├── mc_policy_comparison.png
-│   └── state_action_visit_scatter.png
+│ ├── mc_policy_comparison.png
+│ └── state_action_visit_scatter.png
 ├── scripts/
-│   └── chapter4_experiment.sh
+│ └── chapter4_experiment.sh
 └── src/
-    ├── algorithms/
-    │   ├── mc_basic.py
-    │   ├── mc_epsilon_greedy.py
-    │   └── mc_exploring_starts.py
-    ├── experiment.py
-    └── visualization.py
+├── algorithms/
+│ ├── mc_basic.py
+│ ├── mc_epsilon_greedy.py
+│ └── mc_exploring_starts.py
+├── experiment.py
+└── visualization.py
 ```
 
 ##  快速开始
