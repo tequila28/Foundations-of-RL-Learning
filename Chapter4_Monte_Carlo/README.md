@@ -44,18 +44,18 @@
 
 ```bash
 Chapter4_Monte_Carlo/
-├── results/
-│ ├── mc_policy_comparison.png
-│ └── state_action_visit_scatter.png
-├── scripts/
-│ └── chapter4_experiment.sh
-└── src/
-├── algorithms/
-│ ├── mc_basic.py
-│ ├── mc_epsilon_greedy.py
-│ └── mc_exploring_starts.py
-├── experiment.py
-└── visualization.py
+├── results/ # 结果可视化文件目录
+│ ├── mc_policy_comparison.png # 三种算法策略对比图
+│ └── state_action_visit_scatter.png # 探索特性分析散点图
+├── scripts/ # 实验脚本目录
+│ └── chapter4_experiment.sh # 主实验脚本，一键运行所有实验
+└── src/ # 源代码目录
+├── algorithms/ # 算法实现模块
+│ ├── mc_basic.py # MC Basic 算法实现
+│ ├── mc_epsilon_greedy.py # MC ε-greedy 算法实现
+│ └── mc_exploring_starts.py # MC Exploring Starts 算法实现
+├── experiment.py # 实验运行和参数配置主文件
+└── visualization.py # 数据可视化和图表生成模块
 ```
 
 ##  快速开始
