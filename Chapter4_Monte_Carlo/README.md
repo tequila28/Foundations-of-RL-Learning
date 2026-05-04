@@ -106,6 +106,7 @@ bash Chapter4_Monte_Carlo/scripts/chapter4_experiment.sh
     -   **MC Exploring Starts** 算法学习到的最终策略
     -   **MC ε-greedy** 算法（参数ε1）学习到的最终策略
     -   **MC ε-greedy** 算法（参数ε2）学习到的最终策略
+
     *可视化将呈现不同算法在相同网格世界中最终学到的动作选择策略，便于进行直观对比。*
 
 2.  **探索特性分析可视化**
