@@ -42,18 +42,18 @@ This chapter implements the following in the Grid World environment:
 
 ```bash
 Chapter4_Monte_Carlo/
-├── results/
-│ ├── mc_policy_comparison.png
-│ └── state_action_visit_scatter.png
-├── scripts/
-│ └── chapter4_experiment.sh
-└── src/
-├── algorithms/
-│ ├── mc_basic.py
-│ ├── mc_epsilon_greedy.py
-│ └── mc_exploring_starts.py
-├── experiment.py
-└── visualization.py
+├── results/                          # Directory for result visualization files
+│   ├── mc_policy_comparison.png      # Policy comparison of three algorithms
+│   └── state_action_visit_scatter.png # Exploration characteristics analysis scatter plot
+├── scripts/                          # Directory for experiment scripts
+│   └── chapter4_experiment.sh        # Main experiment script, run all experiments with one click
+└── src/                              # Source code directory
+    ├── algorithms/                   # Algorithm implementation module
+    │   ├── mc_basic.py               # MC Basic algorithm implementation
+    │   ├── mc_epsilon_greedy.py      # MC ε-greedy algorithm implementation
+    │   └── mc_exploring_starts.py    # MC Exploring Starts algorithm implementation
+    ├── experiment.py                 # Main file for experiment execution and parameter configuration
+    └── visualization.py              # Data visualization and chart generation module
 ```
 
 ## Quick Start
