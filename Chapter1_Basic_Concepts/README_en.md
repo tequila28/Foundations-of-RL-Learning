@@ -8,7 +8,28 @@
 
 ## Introduction
 
-This chapter implements a basic Grid World reinforcement learning environment. Grid World is a classic benchmark environment in reinforcement learning, used for understanding and testing various reinforcement learning algorithms. This project implements a configurable Grid World environment model and provides functionalities for policy visualization and state-value function visualization, offering a unified benchmark environment for subsequent algorithm experiments.
+This chapter implements a basic Grid World reinforcement learning environment. Grid World is a classic benchmark environment in reinforcement learning, used for understanding and testing various reinforcement learning algorithms. This project implements a configurable Grid World environment model and provides policy visualization and state value function visualization capabilities, offering a unified benchmark environment for subsequent algorithm experiments.
+
+### Grid Coordinate Specification
+
+The environment uses a 5×5 grid. State indices start from the top-left corner (0,0) and increase in order from left to right, top to bottom. The specific mapping is as follows:
+
+| Coordinates | 0 (Left) | 1 | 2 | 3 | 4 (Right) |
+|-------------|----------|----|----|----|-----------|
+| **0 (Top)** | 0 | 1 | 2 | 3 | 4 |
+| **1** | 5 | 6 | 7 | 8 | 9 |
+| **2** | 10 | 11 | 12 | 13 | 14 |
+| **3** | 15 | 16 | 17 | 18 | 19 |
+| **4 (Bottom)** | 20 | 21 | 22 | 23 | 24 |
+
+**State Numbering Rules**:
+- State number = Row index × 5 + Column index
+- Example: Position (2,3) corresponds to state number 2×5+3 = 13
+- Example: Position (4,1) corresponds to state number 4×5+1 = 21
+
+**Important State Configuration Examples**:
+- Forbidden states: 6, 7, 12, 16, 18, 21
+- Target state: 17
 
 ## File Structure
 
