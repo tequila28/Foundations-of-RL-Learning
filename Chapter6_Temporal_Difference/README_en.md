@@ -125,6 +125,9 @@ Each subplot shows the learning result of a TD algorithm in a 5×5 Grid World, i
 5. **On-policy Q-Learning Results**: ε-greedy policy learning
 6. **Off-policy Q-Learning Results**: Optimal policy learning
 
+Shows the final policies and their corresponding state value functions learned by the five TD algorithms under the same training conditions:
+![TD Algorithm State Value Comparison](./results/final_policies_comparison.png)
+
 *This diagram intuitively compares the specific policy choices and state value estimates learned by different algorithms in the same environment.*
 
 ### 2. Multi-Algorithm Training Process Comparison Diagram (2 subplots)
@@ -138,10 +141,5 @@ Each subplot shows the learning result of a TD algorithm in a 5×5 Grid World, i
   - Reflects the improvement process of the algorithms' value function estimation
   - Analyzes the learning stability of different algorithms
 
-### Multi-Algorithm Optimal Policy and State Value Comparison
-Shows the final policies and their corresponding state value functions learned by the five TD algorithms under the same training conditions:
-![TD Algorithm State Value Comparison](./results/final_policies_comparison.png)
-
-### Multi-Algorithm Training Process Comparison
 Shows the performance indicator changes of the five TD algorithms during training:
 ![TD Algorithm Training Curve Comparison](./results/multi_algorithm_comparison.png)
