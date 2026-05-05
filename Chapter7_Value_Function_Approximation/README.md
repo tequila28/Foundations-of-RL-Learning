@@ -165,5 +165,5 @@ bash Chapter7_Value_Function_Approximation/scripts/chapter7_experiment_two.sh
 #### 2. 多算法训练过程对比
 展示两种算法在训练过程中的性能指标变化：
 - **左侧子图**：每回合总奖励的收敛曲线
-- **右侧子图**：每回合平均Q值的变化曲线
+- **右侧子图**：训练过程TD error收敛曲线
 ![训练曲线对比](./experiment_two_results/multi_algorithm_comparison.png)
