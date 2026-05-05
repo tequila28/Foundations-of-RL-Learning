@@ -129,6 +129,9 @@ bash Chapter6_Temporal_Difference/scripts/chapter6_experiment.sh
 5. **在线策略Q-Learning结果**：ε-贪心策略学习
 6. **离线策略Q-Learning结果**：最优策略学习
 
+展示五种TD算法在相同训练条件下学到的最终策略及其对应的状态价值函数：
+![TD算法状态值对比](./results/final_policies_comparison.png)
+
 *该图直观对比不同算法在相同环境下学到的具体策略选择与状态价值估计。*
 
 ### 2. 多算法训练过程对比图 (2个子图)
@@ -141,11 +144,7 @@ bash Chapter6_Temporal_Difference/scripts/chapter6_experiment.sh
   - 展示五种算法在每个训练回合中的平均TD误差
   - 反映算法对价值函数估计的改进过程
   - 分析不同算法的学习稳定性
-
-### 多算法最佳策略及状态值对比
-展示五种TD算法在相同训练条件下学到的最终策略及其对应的状态价值函数：
-![TD算法状态值对比](./results/final_policies_comparison.png)
-
-### 多算法训练过程对比
+  - 
 展示五种TD算法在训练过程中的性能指标变化：
 ![TD算法训练曲线对比](./results/multi_algorithm_comparison.png)
+
