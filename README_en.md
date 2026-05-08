@@ -21,6 +21,10 @@
 
 ## 🌟 Project Introduction
 
+### 📈 Why Learn Reinforcement Learning?
+
+In recent years, Reinforcement Learning (RL) has become a shining star in the field of Large Language Models (LLM), from ChatGPT's RLHF (Reinforcement Learning from Human Feedback) o1 series to DeepSeek's R1 series. RL has become a key technology for improving the alignment, safety, and reasoning capabilities of large language models. However, to deeply understand how modern RL trains LLMs, the best approach is to start from the beginning and learn the evolutionary path of classic RL algorithms.
+
 **Foundations-of-RL-Learning-From-Scratch** is an educational, from-scratch implementation library of foundational reinforcement learning algorithms. The goal of this project is: **to help learners intuitively understand the principles, derivations, and implementation details of core RL algorithms through concise, clear, and runnable code**.
 
 Starting from the basic grid world environment and Bellman equations, the project gradually implements classic algorithms such as policy iteration, value iteration, Monte Carlo methods, temporal-difference learning, value function approximation, up to policy gradient methods. Each algorithm module includes:
@@ -55,7 +59,7 @@ python -m venv rl_learning
 source rl_learning/bin/activate # Linux/Mac
 ```
 ```bash
-pip install numpy matplotlib
+pip install numpy matplotlib torch tqdm
 ```
 
 ## 🏗️ Project Structure & Algorithm Overview
@@ -72,7 +76,7 @@ The project is organized into different chapters based on core concepts and algo
 | **Stochastic Approximation & Optimization** | ✅ | `Chapter5_Stochastic_Approximation/` | Implements optimizers like SGD, BGD, laying the groundwork for subsequent algorithms. |
 | **Temporal-Difference Learning (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | Includes core algorithms like TD(0), SARSA, and Q-learning. |
 | **Value Function Approximation** | ✅ | `Chapter7_Function_Approximation/` | Approximates value functions for large-scale/continuous states using linear functions or neural networks. |
-| **Policy Gradient Methods** | 🚧 Planned | `(To be added)` | Algorithms that directly optimize the policy, such as REINFORCE and Actor-Critic. |
+| **Policy Gradient Methods** | ✅ | `Chapter8_Policy_Gradient/`  | Algorithms that directly optimize the policy, such as REINFORCE and Actor-Critic. |
 
 > Each chapter directory typically contains: algorithm implementation files (`.py`), demo/execution scripts, necessary documentation (`README.md`), and visualization results.
 
