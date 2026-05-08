@@ -21,6 +21,10 @@
 
 ## 🌟 项目简介
 
+### 📈 为什么学习强化学习？
+
+近年来，强化学习在大型语言模型（LLM）领域大放异彩，从 ChatGPT 的 RLHF（基于人类反馈的强化学习）o1系列到DeepSeek 的 R1系列，RL 已成为提升大语言模型对齐性、安全性和推理能力的关键技术。但要深入理解现代 RL 如何训练 LLM，最好的方式就是从头学习强化学习的经典算法发展脉络。
+
 **Foundations-of-RL-Learning-From-Scratch** 是一个教学性质的、从零实现的强化学习基础算法库。本项目的目标是：**通过简洁、清晰、可运行的代码，帮助学习者直观地理解强化学习核心算法的原理、推导与实现细节**。
 
 项目从基础的网格世界环境、贝尔曼方程开始，逐步实现策略迭代、价值迭代、蒙特卡洛、时序差分、价值函数近似等经典算法，直至策略梯度算法。每个算法模块都包含：
@@ -54,7 +58,7 @@ python -m venv rl_learning
 source rl_learning/bin/activate # Linux/Mac
 ```
 ```bash
-pip install numpy matplotlib
+pip install numpy matplotlib torch tqdm
 ```
 
 ## 🏗️ 项目结构
