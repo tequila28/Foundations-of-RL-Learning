@@ -73,7 +73,7 @@ pip install numpy matplotlib
 | **随机近似与优化** | ✅ | `Chapter5_Stochastic_Approximation/` | 实现SGD、BGD等优化器，为后续算法打下基础。 |
 | **时序差分学习 (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | 包括TD(0)、SARSA、Q-learning等核心算法。 |
 | **值函数近似 (Value Function Approximation)** | ✅ | `Chapter7_Function_Approximation/` | 使用线性函数或神经网络近似大规模/连续状态的价值函数。 |
-| **策略梯度方法 (Policy Gradient)** | 🚧 规划中 | `(待补充)` | REINFORCE、Actor-Critic 等直接优化策略的算法。 |
+| **策略梯度方法 (Policy Gradient)** | ✅ | `Chapter8_Policy_Gradient/` | REINFORCE、Actor-Critic 等直接优化策略的算法。 |
 
 > 每个章节的目录下通常包含：算法实现文件（`.py`）、代码运行脚本（`.sh`、必要的说明文档（`README.md`）以及可视化结果。
 
