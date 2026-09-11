@@ -16,6 +16,7 @@
 - [✨ 项目亮点](#-项目亮点)
 - [📚 知识梳理文档](#-知识梳理文档)
 - [🚀 快速开始](#-快速开始)
+- [🧩 环境与依赖](#-环境与依赖)
 - [🏗️ 项目结构与算法概览](#-项目结构与算法概览)
 - [📖 核心学习资源](#-核心学习资源)
 - [📄 许可证](#-许可证)
@@ -56,9 +57,11 @@
 ### 1. 克隆项目
 ```bash
 git clone https://github.com/tequila28/Foundations-of-RL-Learning.git
+cd Foundations-of-RL-Learning
 ```
 
 ### 2. 创建环境并安装依赖
+
 推荐使用 `conda` 或 `venv` 管理环境。
 
 ```bash
@@ -69,8 +72,49 @@ conda activate rl_learning
 python -m venv rl_learning
 source rl_learning/bin/activate # Linux/Mac
 ```
+
+### 3. 安装 Python 依赖
+
+项目根目录已提供 `requirements.txt`，推荐直接安装：
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+如果希望手动安装，也可以运行：
+
 ```bash
 pip install numpy matplotlib torch tqdm
+```
+
+> 如果需要使用 GPU 版本的 PyTorch，建议根据自己的 CUDA 版本参考 [PyTorch 官网安装指引](https://pytorch.org/get-started/locally/) 安装对应版本。
+
+## 🧩 环境与依赖
+
+推荐环境：
+
+| 项目 | 推荐配置 |
+| :--- | :--- |
+| Python | 3.9 或更高版本 |
+| NumPy | 数值计算、矩阵运算与随机采样 |
+| Matplotlib | 网格世界、价值函数、训练曲线等可视化 |
+| tqdm | 训练过程进度条 |
+| PyTorch | 第 8 章策略梯度、Actor-Critic 神经网络实现 |
+
+依赖文件：
+
+```bash
+requirements.txt
+```
+
+其中包含：
+
+```text
+numpy>=1.24
+matplotlib>=3.7
+tqdm>=4.66
+torch>=2.0
 ```
 
 ## 🏗️ 项目结构

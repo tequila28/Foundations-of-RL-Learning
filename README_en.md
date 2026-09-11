@@ -14,7 +14,9 @@
 ## 📋 Table of Contents
 - [🌟 Project Introduction](#-project-introduction)
 - [✨ Project Highlights](#-project-highlights)
+- [📚 Knowledge Summary Documents](#-knowledge-summary-documents)
 - [🚀 Quick Start](#-quick-start)
+- [🧩 Environment and Dependencies](#-environment-and-dependencies)
 - [🏗️ Project Structure & Algorithm Overview](#-project-structure--algorithm-overview)
 - [📖 Key Learning Resources](#-key-learning-resources)
 - [📄 License](#-license)
@@ -32,12 +34,23 @@ Starting from the basic grid world environment and Bellman equations, the projec
 - 💻 **Executable test examples**
 - 🛠️ **Support for adjusting key parameters** (e.g., learning rate, discount factor, exploration rate)
 - 📊 **Visualization of the learning process and results**
+- 📚 **Bilingual knowledge-summary PDF documents**: systematic summaries of each chapter's theory, code implementation, experiment setup, and result interpretation, helping readers build a traditional RL foundation for later LLM RL study.
 
 ## ✨ Project Highlights
 - **Code-Driven Learning**: Reject the "black box" approach; each algorithm is implemented step-by-step with code that can be debugged line by line.
 - **Unified Grid World Environment**: All algorithms are tested in the same simple grid environment, facilitating comparison and understanding.
 - **Clear Structure, Progressive Learning**: Chapter organization follows the learning path of classic textbooks, from basics to advanced topics.
 - **Theory Meets Practice**: Code implementations are closely aligned with authoritative textbooks like "Mathematical Foundations of Reinforcement Learning".
+- **Bilingual Learning Notes**: Newly added Chinese and English PDF documents summarize each chapter around theory, implementation, experimental purpose, and result analysis.
+
+## 📚 Knowledge Summary Documents
+
+To help readers understand the project more completely, the repository now includes bilingual knowledge-summary PDF documents. Starting from the foundations of traditional reinforcement learning, these documents connect each chapter's code and experiments with core topics such as MDPs, Bellman equations, dynamic programming, Monte Carlo methods, TD learning, value function approximation, and policy gradients. They are also intended to provide a theoretical foundation for understanding reinforcement learning in LLM training.
+
+| Language | Document | Description |
+| :--- | :--- | :--- |
+| Chinese | `docs/Foundations_of_RL_Learning_CN.pdf` | Complete Chinese guide to the theory and experiments. |
+| English | `docs/Foundations_of_RL_Learning_EN.pdf` | English guide covering the same theory, implementation, and experiment analysis. |
 
 ## 🚀 Quick Start
 
@@ -45,6 +58,7 @@ Starting from the basic grid world environment and Bellman equations, the projec
 
 ```bash
 git clone https://github.com/tequila28/Foundations-of-RL-Learning.git
+cd Foundations-of-RL-Learning
 ```
 
 ### 2. Create Environment and Install Dependencies
@@ -58,8 +72,49 @@ conda activate rl_learning
 python -m venv rl_learning
 source rl_learning/bin/activate # Linux/Mac
 ```
+
+### 3. Install Python Dependencies
+
+The project root now provides a `requirements.txt` file. The recommended installation command is:
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+You can also install the dependencies manually:
+
 ```bash
 pip install numpy matplotlib torch tqdm
+```
+
+> If you need the GPU version of PyTorch, please install the proper build for your CUDA version from the [official PyTorch installation guide](https://pytorch.org/get-started/locally/).
+
+## 🧩 Environment and Dependencies
+
+Recommended environment:
+
+| Item | Recommended Configuration |
+| :--- | :--- |
+| Python | 3.9 or later |
+| NumPy | Numerical computation, matrix operations, and random sampling |
+| Matplotlib | GridWorld plots, value functions, and training curves |
+| tqdm | Progress bars during training |
+| PyTorch | Policy-gradient and Actor-Critic neural network implementations in Chapter 8 |
+
+Dependency file:
+
+```bash
+requirements.txt
+```
+
+It contains:
+
+```text
+numpy>=1.24
+matplotlib>=3.7
+tqdm>=4.66
+torch>=2.0
 ```
 
 ## 🏗️ Project Structure & Algorithm Overview
@@ -75,7 +130,7 @@ The project is organized into different chapters based on core concepts and algo
 | **Monte Carlo Methods (MC)** | ✅ | `Chapter4_Monte_Carlo/` | Model-free prediction and control based on complete episode sampling. |
 | **Stochastic Approximation & Optimization** | ✅ | `Chapter5_Stochastic_Approximation/` | Implements optimizers like SGD, BGD, laying the groundwork for subsequent algorithms. |
 | **Temporal-Difference Learning (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | Includes core algorithms like TD(0), SARSA, and Q-learning. |
-| **Value Function Approximation** | ✅ | `Chapter7_Function_Approximation/` | Approximates value functions for large-scale/continuous states using linear functions or neural networks. |
+| **Value Function Approximation** | ✅ | `Chapter7_Value_Function_Approximation/` | Approximates value functions for large-scale/continuous states using linear functions or neural networks. |
 | **Policy Gradient Methods** | ✅ | `Chapter8_Policy_Gradient/`  | Algorithms that directly optimize the policy, such as REINFORCE and Actor-Critic. |
 
 > Each chapter directory typically contains: algorithm implementation files (`.py`), demo/execution scripts, necessary documentation (`README.md`), and visualization results.
