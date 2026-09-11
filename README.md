@@ -14,6 +14,7 @@
 ## 📋 目录
 - [🌟 项目简介](#-项目简介)
 - [✨ 项目亮点](#-项目亮点)
+- [📚 知识梳理文档](#-知识梳理文档)
 - [🚀 快速开始](#-快速开始)
 - [🏗️ 项目结构与算法概览](#-项目结构与算法概览)
 - [📖 核心学习资源](#-核心学习资源)
@@ -32,12 +33,23 @@
 - 💻 **可执行的测试示例**
 - 🛠️**支持调整关键参数（如学习率、折扣因子、探索率等）**
 - 📊 **学习过程与结果的可视化**
+- 📚 **中英文知识梳理 PDF 文档**：系统总结每章理论、代码实现、实验设置与结果解读，方便从传统 RL 过渡到 LLM RL 相关学习。
 
 ## ✨ 项目亮点
 - **代码驱动学习**：拒绝“黑箱”，每个算法都有手把手实现的代码，可逐行调试。
 - **统一的网格世界环境**：所有算法在同一个简单的网格环境中测试，便于对比和理解。
 - **结构清晰，循序渐进**：章节安排符合经典教材的学习路径，从基础到进阶。
 - **理论与实践结合**：代码实现紧密配合《强化学习的数学原理》等权威教材。
+- **双语知识文档**：新增中文与英文两个版本的知识梳理 PDF，围绕每章“理论基础、实现内容、实验目的、结果解读”进行系统总结。
+
+## 📚 知识梳理文档
+
+为了帮助读者更完整地理解本项目，仓库新增了中英文两个版本的知识梳理 PDF 文档。文档从传统强化学习的基础概念出发，结合每一章的代码实现和实验结果，串联 MDP、Bellman 方程、动态规划、Monte Carlo、TD Learning、函数近似和策略梯度等内容，为进一步理解 LLM 中的强化学习方法打下理论基础。
+
+| 语言 | 文档 | 内容说明 |
+| :--- | :--- | :--- |
+| 中文 | `docs/Foundations_of_RL_Learning_CN.pdf` | 面向中文读者的完整理论与实验梳理。 |
+| English | `docs/Foundations_of_RL_Learning_EN.pdf` | English guide covering the same theory, implementation, and experiment analysis. |
 
 ## 🚀 快速开始
 
@@ -76,7 +88,7 @@ pip install numpy matplotlib torch tqdm
 | **蒙特卡洛方法 (MC)** | ✅ | `Chapter4_Monte_Carlo/` | 基于完整回合（episode）采样的免模型预测与控制。 |
 | **随机近似与优化** | ✅ | `Chapter5_Stochastic_Approximation/` | 实现SGD、BGD等优化器，为后续算法打下基础。 |
 | **时序差分学习 (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | 包括TD(0)、SARSA、Q-learning等核心算法。 |
-| **值函数近似 (Value Function Approximation)** | ✅ | `Chapter7_Function_Approximation/` | 使用线性函数或神经网络近似大规模/连续状态的价值函数。 |
+| **值函数近似 (Value Function Approximation)** | ✅ | `Chapter7_Value_Function_Approximation/` | 使用线性函数或神经网络近似大规模/连续状态的价值函数。 |
 | **策略梯度方法 (Policy Gradient)** | ✅ | `Chapter8_Policy_Gradient/` | REINFORCE、Actor-Critic 等直接优化策略的算法。 |
 
 > 每个章节的目录下通常包含：算法实现文件（`.py`）、代码运行脚本（`.sh`、必要的说明文档（`README.md`）以及可视化结果。
