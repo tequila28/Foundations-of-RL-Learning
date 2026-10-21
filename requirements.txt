@@ -1,4 +1,7 @@
 numpy>=1.24
 matplotlib>=3.7
 tqdm>=4.66
-torch>=2.0
+torch>=2.2
+transformers>=4.45,<5
+streamlit>=1.35
+pillow>=10.0

@@ -17,6 +17,8 @@
 - [📚 知识梳理文档](#-知识梳理文档)
 - [🚀 快速开始](#-快速开始)
 - [🧩 环境与依赖](#-环境与依赖)
+- [🧭 网格世界探索与交互式可视化](#-网格世界探索与交互式可视化)
+- [🧠 第 9 章：从传统 RL 到 LLM RL](#-第-9-章从传统-rl-到-llm-rl)
 - [🏗️ 项目结构与算法概览](#-项目结构与算法概览)
 - [📖 核心学习资源](#-核心学习资源)
 - [📄 许可证](#-许可证)
@@ -29,7 +31,7 @@
 
 **Foundations-of-RL-Learning-From-Scratch** 是一个教学性质的、从零实现的强化学习基础算法库。本项目的目标是：**通过简洁、清晰、可运行的代码，帮助学习者直观地理解强化学习核心算法的原理、推导与实现细节**。
 
-项目从基础的网格世界环境、贝尔曼方程开始，逐步实现策略迭代、价值迭代、蒙特卡洛、时序差分、价值函数近似等经典算法，直至策略梯度算法。每个算法模块都包含：
+项目从基础的网格世界环境、贝尔曼方程开始，逐步实现策略迭代、价值迭代、蒙特卡洛、时序差分、价值函数近似与策略梯度算法；第 9 章进一步给出语言模型中 PPO、GRPO 的教学流程。前八章的实验模块包含：
 - 📖 **完整的代码实现** 与 **详尽的注释**
 - 💻 **可执行的测试示例**
 - 🛠️**支持调整关键参数（如学习率、折扣因子、探索率等）**
@@ -38,10 +40,36 @@
 
 ## ✨ 项目亮点
 - **代码驱动学习**：拒绝“黑箱”，每个算法都有手把手实现的代码，可逐行调试。
-- **统一的网格世界环境**：所有算法在同一个简单的网格环境中测试，便于对比和理解。
+- **统一的网格世界环境**：前八章的网格世界算法可在同一个简单环境中对比和理解；第 9 章单独使用 GSM8K。
 - **结构清晰，循序渐进**：章节安排符合经典教材的学习路径，从基础到进阶。
 - **理论与实践结合**：代码实现紧密配合《强化学习的数学原理》等权威教材。
 - **双语知识文档**：新增中文与英文两个版本的知识梳理 PDF，围绕每章“理论基础、实现内容、实验目的、结果解读”进行系统总结。
+
+## 🧭 网格世界探索与交互式可视化
+
+下面的动图展示了第 6 章 Q-learning 智能体在网格世界中的一次 ε-greedy 探索轨迹。红线表示已经走过的路径，红色星标表示智能体当前位置。配色与第一章原始网格可视化一致：白色为普通状态，橙色为惩罚状态，浅蓝色为目标状态。
+
+![Q-learning agent exploring the GridWorld](apps/gridworld_lab/assets/gridworld_agent_exploration.gif)
+
+要交互式运行其他章节的算法，请从仓库根目录启动面板：
+
+```bash
+pip install -r requirements.txt
+streamlit run apps/gridworld_lab/app.py
+```
+
+在左侧面板中选择章节和算法后，可以调整网格大小、起点、目标与惩罚状态、奖励、折扣因子、学习率、探索率和训练回合数。运行后，网格颜色区分状态类型，蓝色数值显示该算法的状态价值或动作价值摘要，箭头显示策略动作，红线显示智能体轨迹；下方的步数滑块可以逐步回放轨迹，训练算法还会显示每回合回报。点击「生成当前实验 GIF」可按当前参数播放并下载动图。前八章 README 提供按各章 Bash 脚本默认参数生成的代表算法 GIF，原有实验结果 PNG 继续保留。第 5 章展示原有的随机优化实验，因此面板改为显示 SGD、Mini-batch GD 或 Batch GD 的参数移动路径和误差曲线。
+
+## 🧠 第 9 章：从传统 RL 到 LLM RL
+
+新增的[第 9 章：GSM8K 上的 PPO 与 GRPO](Chapter9_LLM_RL_GSM8K/README.md)承接策略梯度、价值函数和优势估计，以 `Qwen/Qwen2.5-0.5B-Instruct` 为默认模型，展示一道数学题如何变成语言模型的一次策略更新。章节提供中英文说明、独立的 `torch`/`transformers` 依赖文件、数据下载脚本、训练与评估入口，以及两张**自行绘制的动态流程示意图**：[PPO](Chapter9_LLM_RL_GSM8K/assets/ppo_training_flow.gif) 和 [GRPO](Chapter9_LLM_RL_GSM8K/assets/grpo_training_flow.gif)。
+
+| 方法 | 从同一 prompt 出发 | 优势与更新 |
+| :--- | :--- | :--- |
+| PPO | 采样一个回答，检查最终答案并计算参考策略 KL | 价值头 + GAE；裁剪更新策略与价值头 |
+| GRPO | 采样一组回答，分别检查最终答案 | 组内相对奖励；裁剪更新策略，无价值头 |
+
+第 9 章是独立于网格世界面板的教学示例，**尚未完成模型下载、端到端训练或效果验证**；GIF 中的答案与奖励都是示意值。使用方法见[章节 README](Chapter9_LLM_RL_GSM8K/README.md)。
 
 ## 📚 知识梳理文档
 
@@ -85,10 +113,22 @@ pip install -r requirements.txt
 如果希望手动安装，也可以运行：
 
 ```bash
-pip install numpy matplotlib torch tqdm
+pip install -r requirements.txt
 ```
 
 > 如果需要使用 GPU 版本的 PyTorch，建议根据自己的 CUDA 版本参考 [PyTorch 官网安装指引](https://pytorch.org/get-started/locally/) 安装对应版本。
+
+### 4. 启动交互式学习面板
+
+面板将 8 个章节的实验入口集中在一个页面中，可调整网格环境、训练回合数、学习率、探索率等参数，并查看状态价值、策略方向、训练回报和智能体轨迹。第 5 章保留原有二维均值估计任务，用同一面板对比 SGD、Mini-batch GD 和 Batch GD 的参数轨迹。
+
+在仓库根目录运行：
+
+```bash
+streamlit run apps/gridworld_lab/app.py
+```
+
+随后在浏览器打开 Streamlit 显示的本地地址。原有各章命令行脚本仍然可以单独运行。
 
 ## 🧩 环境与依赖
 
@@ -101,6 +141,9 @@ pip install numpy matplotlib torch tqdm
 | Matplotlib | 网格世界、价值函数、训练曲线等可视化 |
 | tqdm | 训练过程进度条 |
 | PyTorch | 第 8 章策略梯度、Actor-Critic 神经网络实现 |
+| Transformers | 第 9 章语言模型的加载、生成与 PPO/GRPO 示例 |
+| Streamlit | 交互式学习面板 |
+| Pillow | 导出 README 中的 GIF 动图 |
 
 依赖文件：
 
@@ -114,10 +157,35 @@ requirements.txt
 numpy>=1.24
 matplotlib>=3.7
 tqdm>=4.66
-torch>=2.0
+torch>=2.2
+transformers>=4.45,<5
+streamlit>=1.35
+pillow>=10.0
 ```
 
 ## 🏗️ 项目结构
+
+```text
+Foundations-of-RL-Learning/
+├── apps/
+│   └── gridworld_lab/       # 跨章节交互式实验面板
+│       ├── app.py           # 页面和参数控件
+│       ├── runner.py        # 章节实验调度
+│       ├── common.py        # 环境与策略共享工具
+│       ├── chapters/        # 第 1 至第 8 章独立运行模块
+│       ├── visualize.py     # 网格、优化结果绘图与 GIF 动画
+│       ├── generate_agent_gif.py
+│       ├── generate_previews.py
+│       ├── assets/          # README 示例动图
+│       └── README.md        # 面板开发说明
+├── Chapter1_.../            # 按章节组织的算法、脚本、说明和结果
+├── ...
+├── Chapter8_.../
+├── Chapter9_LLM_RL_GSM8K/ # GSM8K 上的 PPO 与 GRPO 教学示例
+└── requirements.txt
+```
+
+新面板把界面、算法调度和绘图模块分开，便于添加算法或扩展展示方式；原有章节源代码、实验脚本与结果目录保留原位置。
 
 ## 📊 算法实现概览
 
@@ -134,6 +202,7 @@ torch>=2.0
 | **时序差分学习 (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | 包括TD(0)、SARSA、Q-learning等核心算法。 |
 | **值函数近似 (Value Function Approximation)** | ✅ | `Chapter7_Value_Function_Approximation/` | 使用线性函数或神经网络近似大规模/连续状态的价值函数。 |
 | **策略梯度方法 (Policy Gradient)** | ✅ | `Chapter8_Policy_Gradient/` | REINFORCE、Actor-Critic 等直接优化策略的算法。 |
+| **LLM 中的 PPO 与 GRPO** | 📝 教学示例 | [`Chapter9_LLM_RL_GSM8K/`](Chapter9_LLM_RL_GSM8K/README.md) | 以 GSM8K 和 Qwen2.5-0.5B-Instruct 展示奖励、优势估计及策略更新；未做完整训练验证。 |
 
 > 每个章节的目录下通常包含：算法实现文件（`.py`）、代码运行脚本（`.sh`、必要的说明文档（`README.md`）以及可视化结果。
 
