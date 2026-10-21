@@ -2,11 +2,11 @@
 
 [English](README_en.md) | [简体中文](README.md)
 
-This chapter connects the policy gradients, value functions, and advantage estimates of the earlier chapters to language models. The default policy is [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct), and the questions come from the [original GSM8K dataset](https://github.com/openai/grade-school-math). This is an **educational training flow**: model download, full training, and resulting accuracy have not been verified in this project.
+This chapter connects the policy gradients, value functions, and advantage estimates of the earlier chapters to language models. Using [Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct) and [GSM8K](https://github.com/openai/grade-school-math), it explains the principles and code flow of PPO and GRPO from prompt sampling through reward and advantage computation to policy updates.
 
 ## From a prompt to a policy update: animated diagrams
 
-These two GIFs were drawn for this project in a light beige, low-saturation sketch style. The answer pieces move into place, followed by reward, value and advantage estimates, and a gradient moving back toward the policy. PPO shows one answer; GRPO shows several answers to the same prompt. The sample question, completions, and numbers are **illustrative, not actual model generations or training results**.
+These two animations demonstrate the PPO and GRPO training flows. Answer pieces appear in sequence, followed by rewards and advantages; the loss is then backpropagated to update the policy. PPO samples one answer for a prompt, while GRPO samples a group of answers to the same prompt.
 
 **PPO:** Sample one answer for one prompt. The final answer receives a 0/1 reward, while the critic (a value head in this code) estimates values for intermediate generated states. GAE combines the terminal reward with these estimates to calculate each token's advantage backward through the response. Token logits yield log probabilities for the clipped loss; backpropagation updates both policy and value head.
 
@@ -20,12 +20,10 @@ These two GIFs were drawn for this project in a light beige, low-saturation sket
 
 Each GSM8K record has a `question` and an `answer`. The reference answer ends with `#### number`, and the prompt asks the model to use the same final-answer format. The rule-based reward is deliberately simple:
 
-$$
-R(x,y)=\begin{cases}
-1,&\text{the final numbers in the generated and reference answers match},\\
-0,&\text{otherwise}.
-\end{cases}
-$$
+```text
+R(x, y) = 1  if the generated final number matches the reference
+        = 0  otherwise
+```
 
 Here `x` is a question and `y` is a generated solution. Only training records update the policy; the test split is reserved for final-answer accuracy. The reward checks the final number, not the validity of the intermediate reasoning.
 
@@ -33,25 +31,26 @@ Here `x` is a question and `y` is a generated solution. Only training records up
 
 PPO samples one answer per question under the current policy. It stores the old policy's token log probabilities, and keeps a frozen copy of the initial model as a reference. The answer reward is added to the final valid token, while each token may receive a KL cost relative to the reference policy:
 
-$$
-r_t=-\beta\bigl(\log\pi_{\mathrm{old}}(a_t\mid s_t)
--\log\pi_{\mathrm{ref}}(a_t\mid s_t)\bigr)
-+\mathbf{1}_{t=T}R(x,y).
-$$
+```text
+r_t = -β [log π_old(a_t | s_t) - log π_ref(a_t | s_t)]
+      + 1[t = T] · R(x, y)
+```
 
-A linear value head on the language model's last hidden state estimates `V(s_t)`. Generalized Advantage Estimation (GAE) works backward over generated tokens to construct advantages `A_t` and return targets. The sampled answer then supports several clipped updates:
+A linear value head on the language model's last hidden state acts as the critic and estimates `V(s_t)` for each generated state. The terminal task reward and each token's KL cost form `r_t`. Generalized Advantage Estimation (GAE) works backward to obtain each token's advantage and return target:
 
-$$
-\rho_t=\exp\bigl(\log\pi_\theta(a_t\mid s_t)
--\log\pi_{\mathrm{old}}(a_t\mid s_t)\bigr),
-\qquad
-L_{\mathrm{PPO}}=
--\mathbb{E}_t\!\left[
-\min\left(\rho_t A_t,\,
-\operatorname{clip}(\rho_t,1-\epsilon,1+\epsilon)A_t\right)
-\right]
-+c_v\,\frac{1}{2}\mathbb{E}_t[(V_\theta(s_t)-G_t)^2].
-$$
+```text
+δ_t = r_t + γ V(s_{t+1}) - V(s_t)     (value after the terminal state is 0)
+A_t = δ_t + γλ A_{t+1}                (recurse backward through tokens)
+G_t = A_t + V(s_t)
+```
+
+The update compares the current policy with the saved old policy and clips their probability ratio. The value head learns the return target:
+
+```text
+ρ_t   = exp[log π_θ(a_t | s_t) - log π_old(a_t | s_t)]
+L_PPO = -mean_t min[ρ_t A_t, clip(ρ_t, 1−ε, 1+ε) A_t]
+        + (c_v / 2) · mean_t [V_θ(s_t) − G_t]²
+```
 
 `src/ppo.py` covers generation, reward and KL construction, GAE, policy and value updates, and saving. PPO trains the extra value head.
 
@@ -59,13 +58,24 @@ $$
 
 GRPO samples `G` answers to the **same** question and compares their rewards within that group:
 
-$$
-A_i=\frac{R_i-\bar R}{\operatorname{std}(R_1,\ldots,R_G)+\varepsilon}.
-$$
+```text
+mean reward R̄ = mean(R_1, ..., R_G)
+group advantage A_i = (R_i − R̄) / [std(R_1, ..., R_G) + ε]
+```
 
-Each valid token in an answer receives its answer's advantage. The policy objective uses the old-policy probability ratio, clipping, and a KL term against the frozen reference. The implementation averages over tokens within each answer and then over the group. **GRPO has no value head.** If all answers in a group have the same reward, their relative advantages are zero; sparse binary rewards can therefore give a weak learning signal.
+Each valid token in an answer receives its answer's advantage. The policy objective uses the old-policy probability ratio, clipping, and a KL term against the frozen reference. It first averages over tokens within each answer and then over answers in the group:
 
-`src/grpo.py` covers grouped generation, reward comparison, clipped updates, and saving. It is a minimal teaching implementation rather than a full large-scale training framework.
+```text
+ρ_i,t  = exp[log π_θ(a_i,t | s_i,t) − log π_old(a_i,t | s_i,t)]
+L_GRPO = −mean_i mean_t min[ρ_i,t A_i, clip(ρ_i,t, 1−ε, 1+ε) A_i]
+         + β · mean_i mean_t KL_i,t
+Δ_i,t  = log π_ref(a_i,t | s_i,t) − log π_θ(a_i,t | s_i,t)
+KL_i,t = exp(Δ_i,t) − Δ_i,t − 1
+```
+
+GRPO does not train a value head. If every answer in a group gets the same reward, its group-relative advantages are zero, so reward design and answer diversity affect the update signal.
+
+`src/grpo.py` implements grouped generation, reward comparison, clipped updates, and saving.
 
 ## Files
 
@@ -109,11 +119,10 @@ python -m Chapter9_LLM_RL_GSM8K.src.evaluate \
 
 The default model is `Qwen/Qwen2.5-0.5B-Instruct`. Training defaults to the first 64 training questions and 20 updates. Options such as `--model`, `--max-examples`, `--max-new-tokens`, and `--learning-rate` control the demo. PPO saves the policy plus `value_head.pt`; GRPO saves the policy only. Evaluation loads only the policy. The Bash wrappers provide equivalent entry points, for example `bash Chapter9_LLM_RL_GSM8K/scripts/train_grpo.sh --steps 20`.
 
-## Scope and limitations
+## Running and implementation notes
 
-- The training steps are written out, but **end-to-end training has not been tested**, and no GSM8K score is claimed.
-- Updating a 0.5B model while keeping a reference copy needs substantial memory. This example does not implement LoRA, distributed training, or memory optimization.
-- With a final-answer-only reward, a weak initial model may rarely answer correctly. In particular, GRPO groups may all score zero. Serious experiments need an appropriate starting model, reward design, and training configuration.
+- Updating a 0.5B model while keeping a reference copy uses substantial memory. This code does not add LoRA, distributed training, or memory optimization.
+- The chapter uses a final-answer reward. If all answers in a GRPO group get the same score, the group-relative advantages are zero and this update receives no relative-reward policy signal.
 - If generation reaches EOS early, only the first EOS is treated as a valid token; subsequent padding is ignored.
 
 ## References
