@@ -17,7 +17,7 @@
 - [📚 Knowledge Summary Documents](#-knowledge-summary-documents)
 - [🚀 Quick Start](#-quick-start)
 - [🧩 Environment and Dependencies](#-environment-and-dependencies)
-- [🧭 GridWorld Exploration and Interactive Visualization](#-gridworld-exploration-and-interactive-visualization)
+- [🧭 GridWorld and Interactive Visualization](#-gridworld-and-interactive-visualization)
 - [🧠 Chapter 9: From Classical RL to LLM RL](#-chapter-9-from-classical-rl-to-llm-rl)
 - [🏗️ Project Structure & Algorithm Overview](#-project-structure--algorithm-overview)
 - [📖 Key Learning Resources](#-key-learning-resources)
@@ -45,11 +45,11 @@ Starting from the basic grid world environment and Bellman equations, the projec
 - **Theory Meets Practice**: Code implementations are closely aligned with authoritative textbooks like "Mathematical Foundations of Reinforcement Learning".
 - **Bilingual Learning Notes**: Newly added Chinese and English PDF documents summarize each chapter around theory, implementation, experimental purpose, and result analysis.
 
-## 🧭 GridWorld Exploration and Interactive Visualization
+## 🧭 GridWorld and Interactive Visualization
 
-The animation below shows one ε-greedy exploration trace from the Chapter 6 Q-learning agent. The red line marks the path so far and the red star marks the agent. The colors match the original Chapter 1 GridWorld visualization: white for normal states, orange for forbidden states, and light blue for the target.
+The animation below comes from the [Chapter 3 value-iteration experiment](Chapter3_Policy_and_Value_Iteration/README_en.md). It shows state values and policy arrows changing as iteration proceeds. Blue numbers are state values; white, orange, and light blue cells represent normal, forbidden, and target states, respectively.
 
-![Q-learning agent exploring the GridWorld](apps/gridworld_lab/assets/gridworld_agent_exploration.gif)
+![Chapter 3 value iteration in the GridWorld](Chapter3_Policy_and_Value_Iteration/results/interactive_lab_preview.gif)
 
 To run algorithms from the other chapters interactively, start the panel from the repository root:
 
@@ -191,16 +191,16 @@ The project is organized into different chapters based on core concepts and algo
 
 | Algorithm | Status | Location | Core Description |
 | :--- | :---: | :--- | :--- |
-| **Grid World Environment** | ✅ | `Chapter1_Basic_Concepts/` | Unified simulation environment for testing all algorithms. |
-| **Bellman Equations** | ✅ | `Chapter2_Bellman_Equations/` | The core recursive equations of RL, foundational for value computation. |
-| **Policy Iteration** | ✅ | `Chapter3_Policy_and_Value_Iteration/` | Classic DP algorithm: alternating iterations of policy evaluation and policy improvement. |
-| **Value Iteration** | ✅ | `Chapter3_Policy_and_Value_Iteration/` | A more efficient DP method that directly iterates the value function to optimality. |
-| **Monte Carlo Methods (MC)** | ✅ | `Chapter4_Monte_Carlo/` | Model-free prediction and control based on complete episode sampling. |
-| **Stochastic Approximation & Optimization** | ✅ | `Chapter5_Stochastic_Approximation/` | Implements optimizers like SGD, BGD, laying the groundwork for subsequent algorithms. |
-| **Temporal-Difference Learning (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | Includes core algorithms like TD(0), SARSA, and Q-learning. |
-| **Value Function Approximation** | ✅ | `Chapter7_Value_Function_Approximation/` | Approximates value functions for large-scale/continuous states using linear functions or neural networks. |
-| **Policy Gradient Methods** | ✅ | `Chapter8_Policy_Gradient/`  | Algorithms that directly optimize the policy, such as REINFORCE and Actor-Critic. |
-| **PPO and GRPO for LLMs** | 📝 Teaching example | [`Chapter9_LLM_RL_GSM8K/`](Chapter9_LLM_RL_GSM8K/README_en.md) | Reward, advantage estimation, and policy updates with GSM8K and Qwen2.5-0.5B-Instruct; full training has not been verified. |
+| [**Grid World Environment**](Chapter1_Basic_Concepts/README_en.md) | ✅ | [Chapter1_Basic_Concepts/](Chapter1_Basic_Concepts/README_en.md) | Unified simulation environment for testing all algorithms. |
+| [**Bellman Equations**](Chapter2_Bellman_Equations/README_en.md) | ✅ | [Chapter2_Bellman_Equations/](Chapter2_Bellman_Equations/README_en.md) | The core recursive equations of RL, foundational for value computation. |
+| [**Policy Iteration**](Chapter3_Policy_and_Value_Iteration/README_en.md) | ✅ | [Chapter3_Policy_and_Value_Iteration/](Chapter3_Policy_and_Value_Iteration/README_en.md) | Classic DP algorithm: alternating iterations of policy evaluation and policy improvement. |
+| [**Value Iteration**](Chapter3_Policy_and_Value_Iteration/README_en.md) | ✅ | [Chapter3_Policy_and_Value_Iteration/](Chapter3_Policy_and_Value_Iteration/README_en.md) | A more efficient DP method that directly iterates the value function to optimality. |
+| [**Monte Carlo Methods (MC)**](Chapter4_Monte_Carlo/README_en.md) | ✅ | [Chapter4_Monte_Carlo/](Chapter4_Monte_Carlo/README_en.md) | Model-free prediction and control based on complete episode sampling. |
+| [**Stochastic Approximation & Optimization**](Chapter5_Stochastic_Approximation/README_en.md) | ✅ | [Chapter5_Stochastic_Approximation/](Chapter5_Stochastic_Approximation/README_en.md) | Implements optimizers like SGD, BGD, laying the groundwork for subsequent algorithms. |
+| [**Temporal-Difference Learning (TD Learning)**](Chapter6_Temporal_Difference/README_en.md) | ✅ | [Chapter6_Temporal_Difference/](Chapter6_Temporal_Difference/README_en.md) | Includes core algorithms like TD(0), SARSA, and Q-learning. |
+| [**Value Function Approximation**](Chapter7_Value_Function_Approximation/README_en.md) | ✅ | [Chapter7_Value_Function_Approximation/](Chapter7_Value_Function_Approximation/README_en.md) | Approximates value functions for large-scale/continuous states using linear functions or neural networks. |
+| [**Policy Gradient Methods**](Chapter8_Policy_Gradient/README_en.md) | ✅ | [Chapter8_Policy_Gradient/](Chapter8_Policy_Gradient/README_en.md) | Algorithms that directly optimize the policy, such as REINFORCE and Actor-Critic. |
+| [**PPO and GRPO for LLMs**](Chapter9_LLM_RL_GSM8K/README_en.md) | 📝 Teaching example | [Chapter9_LLM_RL_GSM8K/](Chapter9_LLM_RL_GSM8K/README_en.md) | Reward, advantage estimation, and policy updates with GSM8K and Qwen2.5-0.5B-Instruct; full training has not been verified. |
 
 > Each chapter directory typically contains: algorithm implementation files (`.py`), demo/execution scripts, necessary documentation (`README.md`), and visualization results.
 

@@ -20,12 +20,12 @@
 
 GSM8K 每条记录包含 `question` 和 `answer`。标准答案以 `#### 数值` 结尾；提示词要求模型按相同格式给出最终答案。本章使用最简单的规则奖励：
 
-\[
+$$
 R(x,y)=\begin{cases}
 1,&\text{生成答案与标准答案的最终数值相同},\\
 0,&\text{其他情况}.
 \end{cases}
-\]
+$$
 
 这里的 `x` 是题目，`y` 是生成的推理与答案。只有训练集参与策略更新；测试集只用于最终答案准确率评估。奖励只检查最终数值，不判断推理过程是否正确。
 
@@ -33,15 +33,15 @@ R(x,y)=\begin{cases}
 
 PPO 在当前策略下为一道题生成一个回答。生成时保存旧策略的 token 对数概率；冻结的初始模型作为参考策略。任务奖励放在回答的最后一个有效 token，其他 token 可加入相对参考策略的 KL 代价：
 
-\[
+$$
 r_t=-\beta\bigl(\log\pi_{\mathrm{old}}(a_t\mid s_t)
 -\log\pi_{\mathrm{ref}}(a_t\mid s_t)\bigr)
 +\mathbf{1}_{t=T}R(x,y).
-\]
+$$
 
 语言模型最后一层隐藏状态接一个线性价值头 `V(s_t)`。代码用 GAE 从后往前计算优势 `A_t` 与回报目标，并对同一批生成结果做多轮更新：
 
-\[
+$$
 \rho_t=\exp\bigl(\log\pi_\theta(a_t\mid s_t)
 -\log\pi_{\mathrm{old}}(a_t\mid s_t)\bigr),
 \qquad
@@ -51,7 +51,7 @@ L_{\mathrm{PPO}}=
 \operatorname{clip}(\rho_t,1-\epsilon,1+\epsilon)A_t\right)
 \right]
 +c_v\,\frac{1}{2}\mathbb{E}_t[(V_\theta(s_t)-G_t)^2].
-\]
+$$
 
 `src/ppo.py` 展示“生成 → 奖励/KL → GAE → 策略与价值更新 → 保存”的完整路径。PPO 需要额外训练价值头。
 
@@ -59,9 +59,9 @@ L_{\mathrm{PPO}}=
 
 GRPO 对同一道题采样 `G` 个回答，各自计算规则奖励，然后在组内求优势：
 
-\[
+$$
 A_i=\frac{R_i-\bar R}{\operatorname{std}(R_1,\ldots,R_G)+\varepsilon}.
-\]
+$$
 
 这个优势赋给该回答的有效 token。策略损失同样使用旧策略概率比和裁剪，并加入相对冻结参考策略的 KL 项。每个回答先按其 token 数平均，再对整组回答平均。**GRPO 不训练价值头**；若一组回答的奖励完全相同，该组的相对优势为零，说明稀疏的 0/1 奖励可能不足以提供学习信号。
 

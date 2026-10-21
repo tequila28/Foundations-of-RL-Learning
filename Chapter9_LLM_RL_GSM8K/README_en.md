@@ -20,12 +20,12 @@ These two GIFs were drawn for this project in a light beige, low-saturation sket
 
 Each GSM8K record has a `question` and an `answer`. The reference answer ends with `#### number`, and the prompt asks the model to use the same final-answer format. The rule-based reward is deliberately simple:
 
-\[
+$$
 R(x,y)=\begin{cases}
 1,&\text{the final numbers in the generated and reference answers match},\\
 0,&\text{otherwise}.
 \end{cases}
-\]
+$$
 
 Here `x` is a question and `y` is a generated solution. Only training records update the policy; the test split is reserved for final-answer accuracy. The reward checks the final number, not the validity of the intermediate reasoning.
 
@@ -33,15 +33,15 @@ Here `x` is a question and `y` is a generated solution. Only training records up
 
 PPO samples one answer per question under the current policy. It stores the old policy's token log probabilities, and keeps a frozen copy of the initial model as a reference. The answer reward is added to the final valid token, while each token may receive a KL cost relative to the reference policy:
 
-\[
+$$
 r_t=-\beta\bigl(\log\pi_{\mathrm{old}}(a_t\mid s_t)
 -\log\pi_{\mathrm{ref}}(a_t\mid s_t)\bigr)
 +\mathbf{1}_{t=T}R(x,y).
-\]
+$$
 
 A linear value head on the language model's last hidden state estimates `V(s_t)`. Generalized Advantage Estimation (GAE) works backward over generated tokens to construct advantages `A_t` and return targets. The sampled answer then supports several clipped updates:
 
-\[
+$$
 \rho_t=\exp\bigl(\log\pi_\theta(a_t\mid s_t)
 -\log\pi_{\mathrm{old}}(a_t\mid s_t)\bigr),
 \qquad
@@ -51,7 +51,7 @@ L_{\mathrm{PPO}}=
 \operatorname{clip}(\rho_t,1-\epsilon,1+\epsilon)A_t\right)
 \right]
 +c_v\,\frac{1}{2}\mathbb{E}_t[(V_\theta(s_t)-G_t)^2].
-\]
+$$
 
 `src/ppo.py` covers generation, reward and KL construction, GAE, policy and value updates, and saving. PPO trains the extra value head.
 
@@ -59,9 +59,9 @@ L_{\mathrm{PPO}}=
 
 GRPO samples `G` answers to the **same** question and compares their rewards within that group:
 
-\[
+$$
 A_i=\frac{R_i-\bar R}{\operatorname{std}(R_1,\ldots,R_G)+\varepsilon}.
-\]
+$$
 
 Each valid token in an answer receives its answer's advantage. The policy objective uses the old-policy probability ratio, clipping, and a KL term against the frozen reference. The implementation averages over tokens within each answer and then over the group. **GRPO has no value head.** If all answers in a group have the same reward, their relative advantages are zero; sparse binary rewards can therefore give a weak learning signal.
 

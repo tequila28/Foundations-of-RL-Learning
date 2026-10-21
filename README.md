@@ -17,7 +17,7 @@
 - [📚 知识梳理文档](#-知识梳理文档)
 - [🚀 快速开始](#-快速开始)
 - [🧩 环境与依赖](#-环境与依赖)
-- [🧭 网格世界探索与交互式可视化](#-网格世界探索与交互式可视化)
+- [🧭 网格世界与交互式可视化](#-网格世界与交互式可视化)
 - [🧠 第 9 章：从传统 RL 到 LLM RL](#-第-9-章从传统-rl-到-llm-rl)
 - [🏗️ 项目结构与算法概览](#-项目结构与算法概览)
 - [📖 核心学习资源](#-核心学习资源)
@@ -45,11 +45,11 @@
 - **理论与实践结合**：代码实现紧密配合《强化学习的数学原理》等权威教材。
 - **双语知识文档**：新增中文与英文两个版本的知识梳理 PDF，围绕每章“理论基础、实现内容、实验目的、结果解读”进行系统总结。
 
-## 🧭 网格世界探索与交互式可视化
+## 🧭 网格世界与交互式可视化
 
-下面的动图展示了第 6 章 Q-learning 智能体在网格世界中的一次 ε-greedy 探索轨迹。红线表示已经走过的路径，红色星标表示智能体当前位置。配色与第一章原始网格可视化一致：白色为普通状态，橙色为惩罚状态，浅蓝色为目标状态。
+下面的动图来自[第 3 章的价值迭代实验](Chapter3_Policy_and_Value_Iteration/README.md)，展示状态价值与策略随迭代更新的过程。蓝色数值表示状态价值，箭头表示当前策略；网格沿用原有配色：白色为普通状态，橙色为惩罚状态，浅蓝色为目标状态。
 
-![Q-learning agent exploring the GridWorld](apps/gridworld_lab/assets/gridworld_agent_exploration.gif)
+![第 3 章价值迭代在网格世界中的动态可视化](Chapter3_Policy_and_Value_Iteration/results/interactive_lab_preview.gif)
 
 要交互式运行其他章节的算法，请从仓库根目录启动面板：
 
@@ -193,16 +193,16 @@ Foundations-of-RL-Learning/
 
 | 算法名称 | 状态 | 所在章节 | 核心说明 |
 | :--- | :---: | :--- | :--- |
-| **网格世界环境** | ✅ | `Chapter1_Basic_Concepts/` | 用于测试所有算法的统一仿真环境。 |
-| **贝尔曼方程** | ✅ | `Chapter2_Bellman_Equations/` | 强化学习的核心递归方程，价值计算的基础。 |
-| **策略迭代 (Policy Iteration)** | ✅ | `Chapter3_Policy_and_Value_Iteration/` | 经典DP算法：策略评估 + 策略改进的交替迭代。 |
-| **价值迭代 (Value Iteration)** | ✅ | `Chapter3_Policy_and_Value_Iteration/` | 更高效的DP方法，直接迭代价值函数至最优。 |
-| **蒙特卡洛方法 (MC)** | ✅ | `Chapter4_Monte_Carlo/` | 基于完整回合（episode）采样的免模型预测与控制。 |
-| **随机近似与优化** | ✅ | `Chapter5_Stochastic_Approximation/` | 实现SGD、BGD等优化器，为后续算法打下基础。 |
-| **时序差分学习 (TD Learning)** | ✅ | `Chapter6_Temporal_Difference/` | 包括TD(0)、SARSA、Q-learning等核心算法。 |
-| **值函数近似 (Value Function Approximation)** | ✅ | `Chapter7_Value_Function_Approximation/` | 使用线性函数或神经网络近似大规模/连续状态的价值函数。 |
-| **策略梯度方法 (Policy Gradient)** | ✅ | `Chapter8_Policy_Gradient/` | REINFORCE、Actor-Critic 等直接优化策略的算法。 |
-| **LLM 中的 PPO 与 GRPO** | 📝 教学示例 | [`Chapter9_LLM_RL_GSM8K/`](Chapter9_LLM_RL_GSM8K/README.md) | 以 GSM8K 和 Qwen2.5-0.5B-Instruct 展示奖励、优势估计及策略更新；未做完整训练验证。 |
+| [**网格世界环境**](Chapter1_Basic_Concepts/README.md) | ✅ | [Chapter1_Basic_Concepts/](Chapter1_Basic_Concepts/README.md) | 用于测试所有算法的统一仿真环境。 |
+| [**贝尔曼方程**](Chapter2_Bellman_Equations/README.md) | ✅ | [Chapter2_Bellman_Equations/](Chapter2_Bellman_Equations/README.md) | 强化学习的核心递归方程，价值计算的基础。 |
+| [**策略迭代 (Policy Iteration)**](Chapter3_Policy_and_Value_Iteration/README.md) | ✅ | [Chapter3_Policy_and_Value_Iteration/](Chapter3_Policy_and_Value_Iteration/README.md) | 经典DP算法：策略评估 + 策略改进的交替迭代。 |
+| [**价值迭代 (Value Iteration)**](Chapter3_Policy_and_Value_Iteration/README.md) | ✅ | [Chapter3_Policy_and_Value_Iteration/](Chapter3_Policy_and_Value_Iteration/README.md) | 更高效的DP方法，直接迭代价值函数至最优。 |
+| [**蒙特卡洛方法 (MC)**](Chapter4_Monte_Carlo/README.md) | ✅ | [Chapter4_Monte_Carlo/](Chapter4_Monte_Carlo/README.md) | 基于完整回合（episode）采样的免模型预测与控制。 |
+| [**随机近似与优化**](Chapter5_Stochastic_Approximation/README.md) | ✅ | [Chapter5_Stochastic_Approximation/](Chapter5_Stochastic_Approximation/README.md) | 实现SGD、BGD等优化器，为后续算法打下基础。 |
+| [**时序差分学习 (TD Learning)**](Chapter6_Temporal_Difference/README.md) | ✅ | [Chapter6_Temporal_Difference/](Chapter6_Temporal_Difference/README.md) | 包括TD(0)、SARSA、Q-learning等核心算法。 |
+| [**值函数近似 (Value Function Approximation)**](Chapter7_Value_Function_Approximation/README.md) | ✅ | [Chapter7_Value_Function_Approximation/](Chapter7_Value_Function_Approximation/README.md) | 使用线性函数或神经网络近似大规模/连续状态的价值函数。 |
+| [**策略梯度方法 (Policy Gradient)**](Chapter8_Policy_Gradient/README.md) | ✅ | [Chapter8_Policy_Gradient/](Chapter8_Policy_Gradient/README.md) | REINFORCE、Actor-Critic 等直接优化策略的算法。 |
+| [**LLM 中的 PPO 与 GRPO**](Chapter9_LLM_RL_GSM8K/README.md) | 📝 教学示例 | [Chapter9_LLM_RL_GSM8K/](Chapter9_LLM_RL_GSM8K/README.md) | 以 GSM8K 和 Qwen2.5-0.5B-Instruct 展示奖励、优势估计及策略更新；未做完整训练验证。 |
 
 > 每个章节的目录下通常包含：算法实现文件（`.py`）、代码运行脚本（`.sh`、必要的说明文档（`README.md`）以及可视化结果。
 
